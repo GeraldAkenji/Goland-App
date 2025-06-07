@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goland-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-app
+  template:
+    metadata:
+      labels:
+        app: goland-app
+    spec:
+      containers:
+      - name: golang-app
+        image: geraldakenji/golang-app:latest
+        ports:
+        - containerPort: 8080
